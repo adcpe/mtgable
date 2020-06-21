@@ -1,0 +1,27 @@
+.container {
+  width: 75%;
+  margin: 2% auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas:
+    'search search'
+    'result faves';
+}
+
+.title {
+  text-align: center;
+}
+
+.search {
+  grid-area: search;
+  margin: 0 auto;
+}
+
+.result {
+  grid-area: result;
+}
+
+.faves {
+  grid-area: faves;
+}
