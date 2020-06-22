@@ -38,5 +38,23 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.card__info {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  visibility: hidden;
+}
+
+.card__name {
+  text-align: center;
+  font-size: 1em;
+}
+
+.fa-star {
+  font-size: 1.5em;
 }

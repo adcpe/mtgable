@@ -18,6 +18,10 @@ class PageElement {
   append() {
     this.parent.appendChild(this.element);
   }
+
+  remove() {
+    this.parent.removeChild(this.element);
+  }
 }
 
 const searchInputAttributes = {
