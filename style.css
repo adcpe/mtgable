@@ -1,15 +1,11 @@
 .container {
   width: 75%;
   margin: 2% auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 4fr;
-  grid-template-areas:
-    'search search'
-    'result faves';
+  display: flex;
+  flex-direction: column;
 }
 
-.title {
+.results__title {
   text-align: center;
 }
 
@@ -24,4 +20,23 @@
 
 .faves {
   grid-area: faves;
+}
+
+.results__output,
+.faves {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.results__output div {
+  height: 200px;
+  width: auto;
+}
+
+.card {
+  margin: 1vh 1vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
 }

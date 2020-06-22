@@ -1,35 +1,36 @@
 class PageElement {
-  constructor(elementType, ids, classes, attributes, text, parent) {
-    this.elementType = document.createElement(elementType);
+  constructor(element, text, ids, classes, attributes, parent) {
+    this.element = document.createElement(element);
 
-    this.elementType.id = ids;
+    this.element.innerText = text;
 
-    this.elementType.className = classes;
+    this.element.id = ids;
+
+    this.element.className = classes;
 
     Object.entries(attributes).forEach(([key, value]) => {
-      this.elementType.setAttribute(key, value);
+      this.element.setAttribute(key, value);
     });
-
-    this.elementType.innerText = text;
 
     this.parent = document.querySelector(parent);
   }
 
-  render() {
-    this.parent.appendChild(this.elementType);
+  append() {
+    this.parent.appendChild(this.element);
   }
 }
 
 const searchInputAttributes = {
   type: 'search',
   name: 'search',
+  autofocus: '',
   placeholder: 'Search some cards!',
 };
-const searchInput = new PageElement('input', 'search', '', searchInputAttributes, '', '.search');
+const searchInput = new PageElement('input', '', 'search', '', searchInputAttributes, '.search');
 
-const resultsTitle = new PageElement('h1', '', 'title', {}, 'Results', '.results');
-const favesTitle = new PageElement('h1', '', 'title', {}, 'Favorites', '.faves');
+const resultsTitle = new PageElement('h1', 'Results', '', 'results__title', {}, '.results');
+const resultsOutput = new PageElement('div', '', '', 'results__output', {}, '.results');
 
-resultsTitle.render();
-favesTitle.render();
-searchInput.render();
+resultsTitle.append();
+resultsOutput.append();
+searchInput.append();
