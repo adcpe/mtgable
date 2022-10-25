@@ -1,43 +1,38 @@
 .container {
-  width: 75%;
+  width: 80%;
   margin: 2% auto;
   display: flex;
   flex-direction: column;
 }
 
-.results__title {
-  text-align: center;
-}
-
 .search {
   grid-area: search;
-  margin: 0 auto;
+  margin: 0 auto 2vh;
 }
 
-.result {
+.results {
   grid-area: result;
 }
 
-.faves {
-  grid-area: faves;
-}
-
-.results__output,
-.faves {
+.results__output {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
 }
 
 .results__output div {
-  height: 200px;
   width: auto;
 }
 
 .card {
-  margin: 1vh 1vw;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  margin: 2px 1vw;
+}
+
+.cardArt {
+  width: 100%;
+  margin: 1px auto;
 }
 
 .card__info {
@@ -47,14 +42,29 @@
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.6);
-  visibility: hidden;
 }
 
 .card__name {
   text-align: center;
   font-size: 1em;
+  margin-bottom: 2px;
 }
 
-.fa-star {
-  font-size: 1.5em;
+.card__artist {
+  text-align: center;
+  font-size: 0.75em;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+  .results__output {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .results__output {
+    grid-template-columns: 1fr;
+  }
 }
