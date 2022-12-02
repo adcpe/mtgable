@@ -29,7 +29,34 @@
   flex-direction: column;
   padding: 2px;
   margin: 2px 1vw;
-  border: 1px solid black;
+}
+
+.white {
+  border: 3px solid #fbf2e4;
+}
+
+.blue {
+  border: 3px solid #72afe5;
+}
+
+.black {
+  border: 3px solid black;
+}
+
+.red {
+  border: 3px solid #e25f33;
+}
+
+.green {
+  border: 3px solid #a3c095;
+}
+
+.multicolor {
+  border: 3px solid #e2d670;
+}
+
+.colorless {
+  border: 3px solid #9ab6b6;
 }
 
 .cardArt {

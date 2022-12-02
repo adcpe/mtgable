@@ -1,5 +1,13 @@
 function renderCard(card, index) {
-  const baseDiv = new PageElement('div', '', `card${index}`, 'card', '', '.results__output')
+  const color = setColor(card.colors)
+  const baseDiv = new PageElement(
+    'div',
+    '',
+    `card${index}`,
+    `card ${color}`,
+    '',
+    '.results__output'
+  )
   baseDiv.append()
 
   const name = new PageElement(
@@ -43,6 +51,25 @@ function renderCard(card, index) {
   img.append()
 }
 
+function setColor(colors) {
+  const values = {
+    W: 'white',
+    U: 'blue',
+    B: 'black',
+    R: 'red',
+    G: 'green'
+  }
+  const length = colors.length
+  switch (length) {
+    case 0:
+      return 'colorless'
+    case 1:
+      return values[colors[0]]
+    default:
+      return 'multicolor'
+  }
+}
+
 function search() {
   setTimeout(() => {
     const url = 'https://api.scryfall.com/cards/search?order=released&q='
@@ -54,9 +81,16 @@ function search() {
         const cards = data.data
         resultsOutput.element.innerHTML = ''
 
-        cards.forEach((card, i) => {
-          renderCard(card, i)
-        })
+        cards
+          .sort((a, b) => {
+            const nameA = a.name.toUpperCase()
+            const nameB = b.name.toUpperCase()
+
+            if (nameA < nameB) return -1
+            if (nameA > nameB) return 1
+            return 0
+          })
+          .forEach((card, i) => renderCard(card, i))
       })
       .catch((error) => {
         console.error('Error: ', error)
