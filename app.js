@@ -27,7 +27,7 @@ const searchInputAttributes = {
   type: 'search',
   name: 'search',
   autofocus: '',
-  placeholder: 'Search some cards'
+  placeholder: 'Infernal Genesis'
 }
 const searchInput = new PageElement('input', '', 'search', '', searchInputAttributes, '.search')
 
